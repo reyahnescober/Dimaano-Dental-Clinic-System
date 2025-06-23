@@ -1,0 +1,64 @@
+main.dart
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+    home: DimaanosScheduleConfirmedView(),
+    debugShowCheckedModeBanner: false,
+  ));
+}
+
+class DimaanosScheduleConfirmedView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color(0xFF0052CC),
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.check_circle_outline,
+              size: 160,
+              color: Colors.white,
+            ),
+            SizedBox(height: 20),
+            Text(
+              "SCHEDULE CONFIRMED",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Poppins',
+              ),
+            ),
+            SizedBox(height: 120),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30),
+              child: SizedBox(
+                width: double.infinity,
+                child: OutlinedButton(
+                  onPressed: () {},
+                  style: OutlinedButton.styleFrom(
+                    side: BorderSide(color: Colors.white),
+                    shape: StadiumBorder(),
+                    padding: EdgeInsets.symmetric(vertical: 18),
+                  ),
+                  child: Text(
+                    "GO BACK TO DASHBOARD",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Poppins',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
