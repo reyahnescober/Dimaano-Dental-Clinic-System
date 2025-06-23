@@ -1,0 +1,165 @@
+main.dart
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: DimaanosSignUpView(),
+  ));
+}
+
+class DimaanosSignUpView extends StatelessWidget {
+  const DimaanosSignUpView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Column(
+        children: [
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.fromLTRB(24, 80, 24, 40),
+            decoration: const BoxDecoration(
+              color: Color(0xFF0052CC),
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(40),
+                bottomRight: Radius.circular(40),
+              ),
+            ),
+            child: Stack(
+              children: [
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Text(
+                        "Let's",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 30,
+                          fontFamily: 'Poppins',
+                        ),
+                      ),
+                      Text(
+                        "Create\nYour\nAccount",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 36,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Poppins',
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const Align(
+                  alignment: Alignment.topRight,
+                  child: Icon(Icons.close, color: Colors.white),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    _formField("Full Name"),
+                    const SizedBox(height: 16),
+                    _formField("Email Address"),
+                    const SizedBox(height: 16),
+                    _formField("Password", isObscure: true),
+                    const SizedBox(height: 16),
+                    _formField("Retype Password", isObscure: true),
+                    const SizedBox(height: 16),
+                    Row(
+                      children: [
+                        Checkbox(value: false, onChanged: (_) {}),
+                        const Expanded(
+                          child: Text.rich(
+                            TextSpan(
+                              text: 'I agree to the ',
+                              style: TextStyle(fontSize: 13, fontFamily: 'Poppins'),
+                              children: [
+                                TextSpan(
+                                  text: 'Terms & Privacy',
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFF0052CC),
+                          shape: const StadiumBorder(),
+                          padding: const EdgeInsets.symmetric(vertical: 16),
+                        ),
+                        child: const Text(
+                          "Sign Up",
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Text(
+                          "Have an account? ",
+                          style: TextStyle(fontFamily: 'Poppins', fontSize: 14),
+                        ),
+                        Text(
+                          "Sign in",
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 14,
+                            color: Color(0xFF0052CC),
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _formField(String hint, {bool isObscure = false}) {
+    return TextField(
+      obscureText: isObscure,
+      decoration: InputDecoration(
+        hintText: hint,
+        hintStyle: const TextStyle(fontFamily: 'Poppins'),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30),
+          borderSide: const BorderSide(color: Color(0xFF0052CC)),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30),
+          borderSide: const BorderSide(color: Color(0xFF0052CC), width: 2),
+        ),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+      ),
+    );
+  }
+}
