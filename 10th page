@@ -1,0 +1,110 @@
+main.dart
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+    home: DimaanosXrayPage(),
+    debugShowCheckedModeBanner: false,
+  ));
+}
+
+class DimaanosXrayPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color(0xFF0052CC),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: Column(
+            children: [
+              Align(
+                alignment: Alignment.centerLeft,
+                child: IconButton(
+                  icon: const Icon(Icons.arrow_back, color: Colors.white),
+                  onPressed: () {},
+                ),
+              ),
+              const SizedBox(height: 10),
+              const Text(
+                "X-RAY RESULTS",
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 26,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+              const SizedBox(height: 30),
+              Container(
+                height: 150,
+                child: Image.asset(
+                  'assets/xray.png',
+                  fit: BoxFit.contain,
+                ),
+              ),
+              const SizedBox(height: 30),
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "X-ray Type: Panoramic Dental X-ray",
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(height: 6),
+                    Text(
+                      "Date: July 25, 2025",
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 17,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text(
+                      "Clinic: Dimaanos Dental Clinic",
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 17,
+                        color: Colors.white70,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const Spacer(),
+              SizedBox(
+                width: double.infinity,
+                child: OutlinedButton(
+                  onPressed: () {},
+                  style: OutlinedButton.styleFrom(
+                    side: const BorderSide(color: Colors.white),
+                    shape: const StadiumBorder(),
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                  ),
+                  child: const Text(
+                    "GO BACK TO DASHBOARD",
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 16,
+                      letterSpacing: 1,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 70),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
